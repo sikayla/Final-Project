@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: django-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn school_records_system.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: school_records_system.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: your-app-name.onrender.com

@@ -2,19 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ learner.full_name }}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_student_info.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_student_info.css' %}">
 </head>
 <body>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-logo">Cavite State University</div>
-        <ul class="navbar-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/contact/">Contact</a></li>
-        </ul>
+       <nav class="navbar">
+      <div class="navbar-logo">Cavite State University</div>
+      <ul class="navbar-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
     </nav>
 
     <div class="container_students_info">
@@ -23,9 +24,10 @@
             <p><strong>Email:</strong> {{ learner.email }}</p>
             <p><strong>Age:</strong> {{ learner.age }}</p>
             <div class="action-buttons">
-                <a href="{% url 'update_learner' learner.id %}" class="btn btn-primary">Update Student Info</a>
-                <a href="{% url 'delete_learner' learner.id %}" class="btn btn-danger">Delete Student</a>
-            </div>
+            <a href="{% url 'update_learner' learner.id %}" class="btn btn-primary">Update Student Info</a>
+            <a href="{% url 'delete_learner' learner.id %}" class="btn btn-danger">Delete Student</a>
+        </div>
+
         </div>
 
         <h2 class="section-title">Subjects and Grades</h2>
@@ -34,10 +36,12 @@
                 {% for subject in learner.subjects.all %}
                     <div class="subject-card">
                         <h3>{{ subject.title }}</h3>
+
                         <div class="action-buttons-subject">
                             <a href="{% url 'update_subject' subject.id %}" class="btn btn-primary">Update Subject</a>
                             <a href="{% url 'delete_subject' subject.id %}" class="btn btn-danger">Delete Subject</a>
                         </div>
+
                         {% if subject.grades.all %}
                             <div class="grades-table-wrapper">
                                 <table>
@@ -77,5 +81,6 @@
             <p class="no-content">No subjects found for this learner.</p>
         {% endif %}
     </div>
+
 </body>
 </html>

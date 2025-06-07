@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Grade</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Grade for {{ subject.title }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="number" name="activity_score" step="0.01" required placeholder="Activity Score">
+            <input type="number" name="quiz_score" step="0.01" required placeholder="Quiz Score">
+            <input type="number" name="exam_score" step="0.01" required placeholder="Exam Score">
+            <button type="submit">Save Grade</button>
+            <a href="{% url 'student_info' subject.learner.id %}"><button type="button">Cancel</button></a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Grade</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Are you sure you want to delete the grade for "{{ grade.subjects.title }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete</button>
+            <a href="{% url 'student_info' grade.subjects.learner.id %}"><button type="button">Cancel</button></a>
+        </form>
+    </div>
+</body>
+</html>

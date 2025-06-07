@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update Learner</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Update Learner</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="full_name" value="{{ learner.full_name }}" required>
+            <input type="number" name="age" value="{{ learner.age }}" required>
+            <input type="email" name="email" value="{{ learner.email }}" required>
+            <button type="submit">Update</button>
+            <a href="{% url 'student_info' learner.id %}">
+                <button type="button">Cancel</button>
+            </a>
+        </form>
+    </div>
+</body>
+</html>

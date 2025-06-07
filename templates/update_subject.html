@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update Subject</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Update Subject</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" value="{{ subject.title }}" required>
+            <button type="submit">Update</button>
+            <a href="{% url 'student_info' subject.learner.id %}"><button type="button">Cancel</button></a>
+        </form>
+    </div>
+</body>
+</html>

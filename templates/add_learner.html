@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Students</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Students</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+           <a href="{% url 'index' %}" class="cancel-button">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

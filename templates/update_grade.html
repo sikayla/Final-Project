@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update Grade</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Update Grades for {{ grade.subjects.title }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="number" name="activity_score" step="0.01" value="{{ grade.activity_score }}" required>
+            <input type="number" name="quiz_score" step="0.01" value="{{ grade.quiz_score }}" required>
+            <input type="number" name="exam_score" step="0.01" value="{{ grade.exam_score }}" required>
+            <button type="submit">Update</button>
+            <a href="{% url 'student_info' grade.subjects.learner.id %}"><button type="button">Cancel</button></a>
+        </form>
+    </div>
+</body>
+</html>

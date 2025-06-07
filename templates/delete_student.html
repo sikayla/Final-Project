@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Learner</title>
+    <link rel="stylesheet" href="/static/css/form_styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Are you sure you want to delete "{{ learner.full_name }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete</button>
+            <a href="{% url 'student_info' learner.id %}">
+                <button type="button">Cancel</button>
+            </a>
+        </form>
+    </div>
+</body>
+</html>

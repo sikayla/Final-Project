@@ -99,14 +99,14 @@ body {
 /* --------------------- */
 /* === LEARNER DETAILS === */
 /* --------------------- */
-.learner-card {
+.learner-details {
     background-color: #f1f8e9;
     padding: 25px 30px;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.05);
 }
 
-.learner-card p {
+.learner-details p {
     font-size: 1.1em;
     margin: 10px 0;
     color: #2e7d32;
@@ -124,6 +124,7 @@ body {
     margin-bottom: 25px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
     display: flex;
+    flex-direction: column; /* Changed to column for better stacking */
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -220,15 +221,16 @@ a.button.danger:hover {
 /* === GRADES TABLE === */
 /* -------------------- */
 .grades-table-wrapper {
-    overflow-x: auto;
+    overflow-x: auto; /* Enables horizontal scrolling for tables */
     margin-top: 15px;
-       width: 100%;
+    width: 100%;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    min-width: 600px; /* Ensures table has a minimum width for scrolling */
 }
 
 thead {
@@ -264,9 +266,6 @@ th, td {
     text-decoration: underline;
 }
 
-/* --------------------------- */
-/* === RESPONSIVE STYLES === */
-/* --------------------------- */
 /* --------------------------- */
 /* === RESPONSIVE STYLES === */
 /* --------------------------- */
@@ -326,5 +325,34 @@ th, td {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-title {
+        font-size: 1.8em;
+    }
+
+    .section-title {
+        font-size: 1.4em;
+    }
+
+    .container_students_info {
+        padding: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .btn,
+    button,
+    input[type="submit"],
+    input[type="button"],
+    a.button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        min-width: unset;
     }
 }
